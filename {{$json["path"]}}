@@ -1,0 +1,7 @@
+{
+  "cveId": "CVE-2025-0942",
+  "date": "2025-04-07",
+  "severity": "MEDIUM",
+  "description": "Detects signs of SQL Injection in Jalios JPlatform 10 SP6 before 10.0.6",
+  "sigma_rule": "title: Detect signs of SQL Injection in Jalios JPlatform 10 SP6 before 10.0.6\nid: 1c2f93e5-9f9c-4a5e-9cc4-6c6c6c6c6c\ndescription: Detects signs of SQL Injection in Jalios JPlatform 10 SP6 before 10.0.6\nlogsource:\n  category: web\n  product: JPlatform\n  vendor: Jalios\ndetection:\n  selection:\n    request.method: POST\n    request.query[\"query\"] matches \".*(\\\\'|\\\\/\\\\*!50000).*\"\n    request.query[\"query\"] contains \"' /*!50000\"\n  condition: selection\ntags:\n  - cve: CVE-2025-0942\n  - severity: MEDIUM\n  - product: JPlatform\n  - vendor: Jalios\n  - sql_injection\n  - jalios_jplatform"
+}
